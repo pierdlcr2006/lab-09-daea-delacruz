@@ -1,0 +1,58 @@
+﻿@using System.Linq
+@model IEnumerable<LaboratorioCRUDProductos.Models.ProductoModel>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+<div class="page-heading d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3">
+    <div>
+        <div class="eyebrow mb-2">Inventario</div>
+        <h1 class="h2 mb-2">Productos</h1>
+        <p class="mb-0">Consulta y administra los productos registrados.</p>
+    </div>
+    @Html.ActionLink("+ Registrar producto", "Create", null, new { @class = "btn btn-primary" })
+</div>
+
+<section class="content-card" aria-labelledby="productTableTitle">
+    <div class="content-card-header d-flex flex-column flex-sm-row align-items-sm-center justify-content-between gap-2">
+        <div>
+            <h2 id="productTableTitle" class="h5 mb-1">Catálogo actual</h2>
+            <p class="muted-copy mb-0">Gestiona cada registro desde sus acciones.</p>
+        </div>
+        <span class="badge text-bg-light">@Model.Count() registros</span>
+    </div>
+    <div class="content-card-body">
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Id)</th>
+                        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                        <th>@Html.DisplayNameFor(model => model.Precio)</th>
+                        <th>@Html.DisplayNameFor(model => model.Stock)</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-muted">#@item.Id</td>
+                            <td class="product-name">@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td class="product-description">@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                            <td class="fw-semibold">@item.Precio.ToString("C")</td>
+                            <td><span class="stock-badge">@item.Stock</span></td>
+                            <td class="text-end action-links text-nowrap">
+                                @Html.ActionLink("Ver", "Details", new { id = item.Id })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.Id }, new { @class = "text-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

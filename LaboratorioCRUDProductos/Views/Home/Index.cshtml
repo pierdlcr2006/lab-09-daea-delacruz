@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Inicio";
+}
+
+<main>
+    <section class="hero-panel mb-4" aria-labelledby="welcomeTitle">
+        <div class="eyebrow mb-3">Gestión de inventario</div>
+        <h1 id="welcomeTitle" class="hero-title display-5 mb-3">Todo tu catálogo, en un solo lugar.</h1>
+        <p class="hero-copy mb-4">Administra tus productos de forma clara y rápida con una experiencia MVC simple, ordenada y lista para crecer.</p>
+        <div class="hero-actions d-flex flex-wrap gap-2">
+            @Html.ActionLink("Ver productos", "Index", "Producto", null, new { @class = "btn btn-light btn-lg" })
+            @Html.ActionLink("Registrar producto", "Create", "Producto", null, new { @class = "btn btn-outline-light btn-lg" })
+        </div>
+    </section>
+
+    <section class="row g-4" aria-label="Características del sistema">
+        <div class="col-md-4">
+            <article class="feature-card">
+                <div class="feature-icon">01</div>
+                <h2 class="h5">Catálogo ordenado</h2>
+                <p class="muted-copy mb-0">Consulta nombre, descripción, precio y stock desde un listado cómodo y responsive.</p>
+            </article>
+        </div>
+        <div class="col-md-4">
+            <article class="feature-card">
+                <div class="feature-icon">02</div>
+                <h2 class="h5">CRUD completo</h2>
+                <p class="muted-copy mb-0">Registra, edita, revisa detalles y elimina productos manteniendo el flujo original del proyecto.</p>
+            </article>
+        </div>
+        <div class="col-md-4">
+            <article class="feature-card">
+                <div class="feature-icon">03</div>
+                <h2 class="h5">Experiencia simple</h2>
+                <p class="muted-copy mb-0">Una interfaz más limpia para que cada acción importante esté siempre a la mano.</p>
+            </article>
+        </div>
+    </section>
+</main>

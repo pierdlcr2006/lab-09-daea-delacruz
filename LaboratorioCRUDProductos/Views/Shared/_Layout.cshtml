@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Sistema MVC para gestionar productos e inventario." />
+    <title>@ViewBag.Title - Inventario DelaCruz</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top">
+        <div class="container">
+            @Html.ActionLink("DC", "Index", "Home", new { area = "" }, new { @class = "navbar-brand brand-mark", title = "Ir al inicio" })
+            @Html.ActionLink("Inventario DelaCruz", "Index", "Home", new { area = "" }, new { @class = "brand-name" })
+
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
+                    title="Alternar navegación" aria-controls="mainNavigation" aria-expanded="false" aria-label="Alternar navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div id="mainNavigation" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <li class="nav-item">@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link px-3" })</li>
+                    <li class="nav-item">@Html.ActionLink("Productos", "Index", "Producto", new { area = "" }, new { @class = "nav-link px-3" })</li>
+                    <li class="nav-item">@Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { @class = "nav-link px-3" })</li>
+                    <li class="nav-item">@Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { @class = "nav-link px-3" })</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container body-content py-4">
+        @RenderBody()
+    </main>
+
+    <footer class="app-footer">
+        <div class="container d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2">
+            <span>&copy; @DateTime.Now.Year Inventario DelaCruz</span>
+            <span class="footer-credit">Desarrollado por Piero de la Cruz</span>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

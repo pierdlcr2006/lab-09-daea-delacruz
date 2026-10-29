@@ -1,0 +1,36 @@
+﻿@model LaboratorioCRUDProductos.Models.ProductoModel
+
+@{
+    ViewBag.Title = "Detalles del producto";
+}
+
+<div class="page-heading d-flex flex-column flex-md-row align-items-md-end justify-content-between gap-3">
+    <div>
+        <div class="eyebrow mb-2">Vista del registro</div>
+        <h1 class="h2 mb-2">Detalles del producto</h1>
+        <p class="mb-0">Revisa la información completa del producto.</p>
+    </div>
+    <span class="badge text-bg-light">ID #@Model.Id</span>
+</div>
+
+<section class="content-card" aria-labelledby="detailTitle">
+    <div class="content-card-body">
+        <h2 id="detailTitle" class="h5 mb-4">@Model.Nombre</h2>
+        <dl class="row detail-list mb-0">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Id)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Id)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombre)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Descripcion)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Precio)</dt>
+            <dd class="col-sm-9">@Model.Precio.ToString("C")</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Stock)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+        </dl>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+            @Html.ActionLink("Editar producto", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Volver al listado", "Index", null, new { @class = "btn btn-outline-secondary" })
+        </div>
+    </div>
+</section>

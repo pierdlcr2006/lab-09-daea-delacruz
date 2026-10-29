@@ -1,0 +1,18 @@
+# Archivos temporales de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Resultados de compilación
+[Bb]in/
+[Oo]bj/
+
+# Archivos temporales y de respaldo
+*.log
+*.tmp
+*.bak
+
+# Paquetes NuGet restaurables desde packages.config
+packages/

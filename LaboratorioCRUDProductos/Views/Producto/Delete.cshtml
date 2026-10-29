@@ -1,0 +1,42 @@
+﻿@model LaboratorioCRUDProductos.Models.ProductoModel
+
+@{
+    ViewBag.Title = "Eliminar producto";
+}
+
+<div class="page-heading">
+    <div class="eyebrow mb-2">Acción irreversible</div>
+    <h1 class="h2 mb-2">Eliminar producto</h1>
+    <p class="mb-0">Confirma que deseas quitar este registro del catálogo.</p>
+</div>
+
+<section class="content-card" aria-labelledby="deleteTitle">
+    <div class="content-card-body">
+        <div class="alert alert-warning" role="alert">
+            ¿Está seguro de que desea eliminar <strong>@Model.Nombre</strong>?
+        </div>
+        <h2 id="deleteTitle" class="h5 mb-4">Resumen del producto</h2>
+        <dl class="row detail-list mb-0">
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Id)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Id)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombre)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Descripcion)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Precio)</dt>
+            <dd class="col-sm-9">@Model.Precio.ToString("C")</dd>
+            <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Stock)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Id)
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <input type="submit" value="Confirmar eliminación" class="btn btn-danger" />
+                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-outline-secondary" })
+            </div>
+        }
+    </div>
+</section>
